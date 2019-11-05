@@ -1,0 +1,23 @@
+<div class="background"></div>
+<div class="headline"><span>Made for</span><br> those who do</div>
+
+<div class="page-content">
+  <div class="index-title">Popular in <span>Bordeaux</span></div>
+
+  <div class="section">
+    <div class="d-flex flex-wrap justify-content-between mx-auto">
+      <% @events.each do |event| %>
+        <div class="card" style="width: 18rem;">
+          <%= image_tag 'covers/cover' + rand(1..10).to_s + '.png', alt: "Couverture évènement", class: "card-img-top" %>
+          <div class="card-body">
+            <div class="card-date"><%= event.start_date.strftime("%a, %b %d") %></div>
+            <h5 class="card-title"><%= link_to event.title, event_path(event.id) %></h5>
+            <div class="card-location"><%= event.location %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
